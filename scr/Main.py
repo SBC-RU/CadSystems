@@ -1,9 +1,11 @@
-#import pygame
+
 import pygame as pg
 import sys
 import Colors
 import TopNavigationPanel
-#from Button import Button
+import WorkPanel
+from WelcomeWindow import WelcomeWindow
+
 # Инициализация Pygame
 pg.init()
 
@@ -12,42 +14,15 @@ screen_width = infoObject.current_w
 screen_height = infoObject.current_h
 
 pg.display.set_caption('ConstantaCad')
-width, height = screen_width-50, screen_height-50
-
-
+width, height = screen_width - 50, screen_height - 50
 
 print(f"Width: {screen_width}, Height: {screen_height}")
 
 # Создание окна
 sc = pg.display.set_mode((width, height))
 
-num1 = 0
-num2 = 0
-num3 = 0
-
-#Загрузка картинок
-img_vectors = pg.image.load('D:/my projects/Start Brick Co/CadSystems/img/vectors.png')
-# Ввод нескольких переменных через запятую
-user_input = '100, 100, 100' #input("Введите координаты начала отрезка и длину, разделенные запятой: ")
-
-# Разделение строки на отдельные значения
-values = user_input.split(',')
-
-# Удаление лишних пробелов
-values = [float(value.strip()) for value in values] # Преобразуем в float
-
-# Присваиваем значения переменным num1, num2 и num3
-if len(values) >= 3:
-    num1 = values[0]
-    num2 = values[1]
-    num3 = values[2]
-else:
-    print("Ошибка: введите как минимум 3 значения.")
-# Вывод результатов
-#print("num1:", num1)
-#print("num2:", num2)
-#print("num3:", num3)
-
+# Создание экземпляра окна приветствия
+welcome_window = WelcomeWindow(width, height)  # Укажите координаты для текста
 
 # Основной цикл программы
 running = True
@@ -55,22 +30,22 @@ while running:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
+
+        # Обработка событий для панели навигации
         TopNavigationPanel.action(event)
+        if welcome_window.check:
+            # Обработка событий для окна приветствия
+            welcome_window.handle_event(event)
 
-    # Заполнение фона цветом
-    sc.fill(Colors.blue)
-    TopNavigationPanel.view(sc, width, height)
-    #button.draw(sc)
-    #pg.draw.polygon(sc, Colors.white, [[0, 0], [0, 64], [width, 64], [width, 0]])
-
-    #sc.blit(img_logo, (0, 0))
-    sc.blit(img_vectors, (180, height-133))
-
-    # Рисование линий на поверхности sc
-    #pg.draw.line(sc, Colors.black, [num1, num2], [num1+num3, num2+num3], 3)  # Черная линия
-    #pg.draw.line(sc, Colors.black, [10, 50], [290, 35])  # Черная линия
-    #pg.draw.aaline(sc, Colors.black, [10, 200], [18, 210])  # Черная линия
-    #pg.draw.polygon(sc, Colors.black,[[250, 110],[280, 150],[190, 190],[130, 130],[100, 130]])
+    # Если окно приветствия открыто, отображаем его
+    if welcome_window.check:
+        sc.fill(Colors.blue)  # Задаем фон только если окно приветствия не активно
+        welcome_window.show(sc)  # Отображение окна приветствия
+    else:
+        # Заполнение фона цветом и отображение панелей только после закрытия окна приветствия
+        sc.fill(Colors.blue)
+        TopNavigationPanel.view(sc, width, height)
+        WorkPanel.view(sc, width, height)
 
     # Обновление дисплея
     pg.display.update()

@@ -15,7 +15,7 @@ img_circle = pg.image.load('D:/my projects/Start Brick Co/CadSystems/img/navi/ci
 img_cancel = pg.image.load('D:/my projects/Start Brick Co/CadSystems/img/navi/cancel.png')
 img_save = pg.image.load('D:/my projects/Start Brick Co/CadSystems/img/navi/save.png')
 
-button_x=230 # положение кнопки по X
+button_x=260 # положение кнопки по X
 button_y=12 # положение кнопки по Y
 button_indent=10
 button_width = 64  # Новая ширина
@@ -60,8 +60,6 @@ def action(event):
     # Создаем кнопку
 def view(sc, width, height):
     pg.draw.polygon(sc, Colors.white, [[0, 0], [0, 90], [width, 90], [width, 0]])
-    pg.draw.polygon(sc, Colors.grey, [[0, 90], [0, height], [160, height], [160, 90]])
+    pg.draw.polygon(sc, Colors.grey, [[0, 90], [0, height], [240, height], [240, 90]])
     sc.blit(img_logo, (0, 0))
     buttons_show(sc)
-    #button.draw(sc)
-    #button2.draw(sc)
