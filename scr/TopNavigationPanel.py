@@ -29,12 +29,12 @@ img_cancel_scaled = pg.transform.scale(img_cancel, (button_width, button_height)
 img_save_scaled = pg.transform.scale(img_save, (button_width, button_height))
 
 #Инициализация кнопок
-button = Button(button_x, button_y, button_width, button_height, "Отрезок", 'Consolas', 12)
-button2 = Button(button_x+button_width+button_indent, button_y, button_width, button_height, "Дуга", 'Consolas', 12)
-button3 = Button(button_x+(button_width+button_indent)*2, button_y, button_width, button_height, "Окружность", 'Consolas', 12)
+button = Button(button_x, button_y, button_width, button_height, "Отрезок", 'Элементы построения','Consolas', 12)
+button2 = Button(button_x+button_width+button_indent, button_y, button_width, button_height, "Дуга", 'Элементы построения', 'Consolas',12)
+button3 = Button(button_x+(button_width+button_indent)*2, button_y, button_width, button_height, "Окружность", 'Элементы построения', 'Consolas',12)
 
-button4 = Button(button_x+(button_width+button_indent)*3+64, button_y, button_width, button_height, "Отмена", 'Consolas', 12)
-button5 = Button(button_x+(button_width+button_indent)*4+64, button_y, button_width, button_height, "Экспорт", 'Consolas', 12)
+button4 = Button(button_x+(button_width+button_indent)*3+64, button_y, button_width, button_height, "Отмена", 'Отмена действия','Consolas', 12)
+button5 = Button(button_x+(button_width+button_indent)*4+64, button_y, button_width, button_height, "Экспорт", 'Сохранить проект', 'Consolas',12)
 def buttons_show(sc):
     # кнопки построения
     button.draw(sc)
@@ -48,6 +48,12 @@ def buttons_show(sc):
     sc.blit(img_cancel_scaled, (button_x + (button_width + button_indent) * 3 + 64, button_y))
     button5.draw(sc)
     sc.blit(img_save_scaled, (button_x + (button_width + button_indent) * 4 + 64, button_y))
+    # отображение подсказок
+    button.update(pg.mouse.get_pos())
+    button2.update(pg.mouse.get_pos())
+    button3.update(pg.mouse.get_pos())
+    button4.update(pg.mouse.get_pos())
+    button5.update(pg.mouse.get_pos())
 def action(event):
     if event.type == pg.MOUSEBUTTONDOWN:
         if event.button == 1:  # Левый клик мыши

@@ -26,8 +26,8 @@ class WelcomeWindow:
         # Инициализация текста и кнопок
         self.text = Text(self.text_x, self.text_y + 20, "Добро пожаловать!", Colors.black, 'Consolas', 28)
         self.text2 = Text(self.text_x, self.text_y + 70, "Выбор прост:", Colors.dark_grey, 'Consolas', 22)
-        self.button = Button(self.text_x, self.text_y + 110, 64, 64, "2D", 'Consolas', 22)
-        self.button2 = Button(self.text_x + 74, self.text_y + 110, 64, 64, "3D", 'Consolas', 22)
+        self.button = Button(self.text_x, self.text_y + 110, 64, 64, " ", 'Двумерный режим', 'Consolas',22)
+        self.button2 = Button(self.text_x + 74, self.text_y + 110, 64, 64, " ", 'Трёхмерный режим', 'Consolas',22)
 
     def handle_event(self, event):
         if event.type == pg.MOUSEBUTTONDOWN:
@@ -63,3 +63,5 @@ class WelcomeWindow:
         sc.blit(img_2d, (self.text_x, self.text_y + 110))
         self.button2.draw(sc)
         sc.blit(img_3d, (self.text_x + 74, self.text_y + 110))
+        self.button.update(pg.mouse.get_pos())
+        self.button2.update(pg.mouse.get_pos())
