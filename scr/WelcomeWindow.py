@@ -21,7 +21,7 @@ class WelcomeWindow:
         window_y = height // 2 - window_height // 2
         self.text_x = window_x + 220  # Исправлено на правильное значение
         self.text_y = window_y + 40
-        self.check = True  # Открыто ли окно приветствия
+        self.check = False  # Открыто ли окно приветствия #для запуска ИСПРАВЬ на TRUE
 
         # Инициализация текста и кнопок
         self.text = Text(self.text_x, self.text_y + 20, "Добро пожаловать!", Colors.black, 'Consolas', 28)

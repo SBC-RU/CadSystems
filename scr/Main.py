@@ -3,7 +3,7 @@ import pygame as pg
 import sys
 import Colors
 import TopNavigationPanel
-import WorkPanel
+import WorkSpace
 from WelcomeWindow import WelcomeWindow
 
 # Инициализация Pygame
@@ -45,7 +45,7 @@ while running:
         # Заполнение фона цветом и отображение панелей только после закрытия окна приветствия
         sc.fill(Colors.blue)
         TopNavigationPanel.view(sc, width, height)
-        WorkPanel.view(sc, width, height)
+        WorkSpace.view(sc, width, height)
 
     # Обновление дисплея
     pg.display.update()
