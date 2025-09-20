@@ -5,6 +5,8 @@ import Colors
 import TopNavigationPanel
 import WorkSpace
 from WelcomeWindow import WelcomeWindow
+import Scale
+
 
 # Инициализация Pygame
 pg.init()
@@ -33,10 +35,12 @@ while running:
 
         # Обработка событий для панели навигации
         TopNavigationPanel.action(event)
+        Scale.action(event)
         if welcome_window.check:
             # Обработка событий для окна приветствия
             welcome_window.handle_event(event)
 
+    #print(Scale.value) #debug
     # Если окно приветствия открыто, отображаем его
     if welcome_window.check:
         sc.fill(Colors.blue)  # Задаем фон только если окно приветствия не активно
@@ -51,7 +55,7 @@ while running:
     pg.display.update()
 
     # Задержка на 200 миллисекунд
-    pg.time.delay(200)
+    pg.time.delay(100)
 
 # Завершение Pygame
 pg.quit()
