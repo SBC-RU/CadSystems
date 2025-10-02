@@ -21,13 +21,13 @@ class WelcomeWindow:
         window_y = height // 2 - window_height // 2
         self.text_x = window_x + 220  # Исправлено на правильное значение
         self.text_y = window_y + 40
-        self.check = False  # Открыто ли окно приветствия #для запуска ИСПРАВЬ на TRUE
+        self.check = True  # Открыто ли окно приветствия #для запуска ИСПРАВЬ на TRUE
 
         # Инициализация текста и кнопок
         self.text = Text(self.text_x, self.text_y + 20, "Добро пожаловать!", Colors.black, 'Consolas', 28)
         self.text2 = Text(self.text_x, self.text_y + 70, "Выбор прост:", Colors.dark_grey, 'Consolas', 22)
-        self.button = Button(self.text_x, self.text_y + 110, 64, 64, " ", 'Двумерный режим', 'Consolas',22)
-        self.button2 = Button(self.text_x + 74, self.text_y + 110, 64, 64, " ", 'Трёхмерный режим', 'Consolas',22)
+        self.button = Button(self.text_x, self.text_y + 110, 64, 64, " ", 'Новый 2D проект', 'Consolas',16)
+        self.button2 = Button(self.text_x + 74, self.text_y + 110, 64, 64, " ", 'Новый 3D проект', 'Consolas',16)
 
     def handle_event(self, event):
         if event.type == pg.MOUSEBUTTONDOWN:

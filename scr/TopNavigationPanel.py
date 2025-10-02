@@ -1,7 +1,6 @@
 import pygame as pg
 import Colors
 from Button import Button
-
 pg.init()
 
 # Загрузка картинок

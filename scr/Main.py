@@ -54,8 +54,8 @@ while running:
     # Обновление дисплея
     pg.display.update()
 
-    # Задержка на 200 миллисекунд
-    pg.time.delay(100)
+    # Задержка на _ миллисекунд
+    pg.time.delay(62)
 
 # Завершение Pygame
 pg.quit()
