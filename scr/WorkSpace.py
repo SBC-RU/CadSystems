@@ -2,7 +2,7 @@ import pygame as pg
 import Colors
 import Scale
 import math
-from Text import Text
+from scr.interface_elements.Text import Text
 from elements.Point import Point
 pg.init()
 
@@ -42,7 +42,7 @@ def spatial_positioning(): #функция сетки пространствен
     print('Point')
 def scale_grid(sc, workspace_width, workspace_height, coord_y):
     new_cell_size=math.floor(Scale.value * cell_size)
-    scale_text = Text(mark_x, mark_y - 20, "Масштаб: x"+str(Scale.value), Colors.black, 'Consolas', 20)
+    scale_text = Text(mark_x, mark_y - 20, "Масштабирование: x"+str(Scale.value), Colors.grey, 'Consolas', 20)
     scale_text.draw(sc)
     count_X = workspace_width // new_cell_size
     count_Y = workspace_height // new_cell_size

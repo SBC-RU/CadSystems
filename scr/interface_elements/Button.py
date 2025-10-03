@@ -1,4 +1,4 @@
-import Colors
+from scr import Colors
 import pygame as pg
 
 

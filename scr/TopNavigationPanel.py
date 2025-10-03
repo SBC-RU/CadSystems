@@ -1,6 +1,7 @@
 import pygame as pg
 import Colors
-from Button import Button
+from scr.interface_elements.Button import Button
+import LeftNavigationPanel
 pg.init()
 
 # Загрузка картинок
@@ -57,14 +58,17 @@ def action(event):
     if event.type == pg.MOUSEBUTTONDOWN:
         if event.button == 1:  # Левый клик мыши
             if button.is_clicked(event.pos):
-                print("---")
+                #вызов инструмента - прямая
+                LeftNavigationPanel.index_input_panel = 1
             elif button2.is_clicked(event.pos):
-                print('(=')
+                # вызов инструмента - дуга
+                LeftNavigationPanel.index_input_panel = 2
             elif button3.is_clicked(event.pos):
-                print("(О)")
+                # вызов инструмента - окружность
+                LeftNavigationPanel.index_input_panel = 3
     # Создаем кнопку
 def view(sc, width, height):
     pg.draw.polygon(sc, Colors.white, [[0, 0], [0, 90], [width, 90], [width, 0]])
-    pg.draw.polygon(sc, Colors.grey, [[0, 90], [0, height], [240, height], [240, 90]])
+    LeftNavigationPanel.view(sc, width, height) #вызов боковой панели
     sc.blit(img_logo, (0, 0))
     buttons_show(sc)

@@ -1,6 +1,6 @@
 import pygame as pg
-from Text import Text
-from Button import Button
+from scr.interface_elements.Text import Text
+from scr.interface_elements.Button import Button
 import Colors
 
 # Инициализация Pygame

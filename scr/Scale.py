@@ -20,8 +20,8 @@ def update_scale(increment):
     return value
 
 def action(event):
-    keys = pg.key.get_pressed()
-    if keys[pg.K_PLUS] or keys[pg.K_EQUALS]:
-        update_scale(0.1)
-    if keys[pg.K_MINUS] or keys[pg.K_UNDERSCORE]:
-        update_scale(-0.1)
+    if event.type == pg.MOUSEBUTTONDOWN:
+        if event.button == 4:  # Прокрутка вверх (колесо вверх)
+            update_scale(0.1)
+        elif event.button == 5:  # Прокрутка вниз (колесо вниз)
+            update_scale(-0.1)

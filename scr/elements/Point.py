@@ -1,6 +1,5 @@
-from scr import Colors
 import pygame as pg
-from scr.Button import Button
+from scr.interface_elements.Button import Button
 class Point:
     def __init__(self, x, y):
         self.x = x
